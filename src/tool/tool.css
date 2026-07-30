@@ -1,0 +1,319 @@
+.keyboard-tester {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.keyboard-listening-status {
+  position: sticky;
+  top: 82px;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 1rem;
+  color: var(--color-text-muted);
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 6px 22px rgba(20, 25, 45, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.keyboard-listening-status.active {
+  color: var(--color-text);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
+}
+
+.keyboard-listening-status button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto;
+}
+
+.keyboard-panel-heading h2,
+.keyboard-section-heading h2,
+.keyboard-rollover h2 {
+  font-size: 1.08rem;
+}
+
+.keyboard-panel-heading p,
+.keyboard-section-heading p,
+.keyboard-rollover p {
+  margin-top: 0.18rem;
+  color: var(--color-text-muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.visual-keyboard-panel,
+.keyboard-latest-event,
+.keyboard-rollover,
+.keyboard-event-log {
+  padding: 1.2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-card);
+}
+
+.keyboard-panel-heading,
+.keyboard-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.keyboard-empty {
+  display: grid;
+  min-height: 150px;
+  place-items: center;
+  align-content: center;
+  gap: 0.4rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.keyboard-listening-status > div {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.keyboard-listening-status span {
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+}
+
+.visual-keyboard-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-keyboard-panel.is-listening:focus {
+  border-color: var(--color-accent);
+  outline: 3px solid color-mix(in srgb, var(--color-accent) 18%, transparent);
+}
+
+.keyboard-layout-control {
+  display: flex;
+  padding: 0.2rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.keyboard-layout-control button {
+  padding: 0.42rem 0.65rem;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.keyboard-layout-control button[aria-pressed="true"] {
+  color: var(--color-text);
+  background: var(--color-surface);
+  box-shadow: 0 1px 4px rgba(20, 25, 45, 0.1);
+}
+
+.visual-keyboard {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  overflow-x: auto;
+  background: #171b25;
+  border-radius: 11px;
+}
+
+.visual-keyboard .keyboard-row {
+  min-width: 726px;
+}
+
+.visual-keyboard.full .keyboard-row {
+  min-width: 896px;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 0.32rem;
+}
+
+.visual-key {
+  position: relative;
+  display: grid;
+  min-width: 37px;
+  min-height: 40px;
+  flex-basis: 0;
+  place-items: center;
+  color: #c7cede;
+  background: linear-gradient(#343b4a, #272d39);
+  border: 1px solid #4b5568;
+  border-radius: 6px;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25);
+  font-size: 0.68rem;
+  text-align: center;
+}
+
+.visual-key.pressed {
+  color: #fff;
+  background: #2563eb;
+  border-color: #60a5fa;
+  transform: translateY(1px);
+}
+
+.visual-key.held,
+.visual-key.repeated {
+  color: #fff;
+  background: #7c3aed;
+  border-color: #c4b5fd;
+}
+
+.visual-key.released {
+  color: #c4b5fd;
+  border-color: #7c3aed;
+}
+
+.visual-key small {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  font-size: 0.55rem;
+}
+
+.keyboard-panel-overlay {
+  position: absolute;
+  inset: 62px 1.2rem 1.2rem;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  align-content: center;
+  gap: 0.5rem;
+  color: #e4e8f1;
+  background: rgba(15, 18, 28, 0.72);
+  border-radius: 11px;
+  backdrop-filter: blur(2px);
+}
+
+.keyboard-diagnostics {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr);
+  gap: 1rem;
+}
+
+.keyboard-latest-event dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.keyboard-latest-event dl > div,
+.rollover-values > div {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.7rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.keyboard-latest-event dt,
+.rollover-values span {
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.keyboard-latest-event dd {
+  overflow-wrap: anywhere;
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+
+.rollover-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.rollover-values strong {
+  font-size: 1.35rem;
+}
+
+.keyboard-capture-note {
+  margin-top: 0.8rem;
+  color: var(--color-text-muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.keyboard-event-log {
+  min-width: 0;
+}
+
+.keyboard-event-table-wrap {
+  margin-top: 0.8rem;
+  overflow-x: auto;
+}
+
+.keyboard-event-log table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+.keyboard-event-log th,
+.keyboard-event-log td {
+  padding: 0.55rem 0.65rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.keyboard-event-log th {
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+.keyboard-diagnostics {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+.keyboard-listening-status {
+    position: static;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+.keyboard-listening-status button {
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+.keyboard-panel-heading,
+.keyboard-section-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+.keyboard-latest-event dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+.rollover-values {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
