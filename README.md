@@ -4,15 +4,25 @@ Test physical keyboard input with visual layouts, key-state highlighting, event 
 
 ## Features
 
-- Compact and full visual keyboard layouts
-- Pressed, held, repeated, and released key states
-- Key, code, location, modifier, and repeat details
-- Detected rollover and simultaneous-key reporting
-- Accessible reset and keyboard-focused operation
+- Compact and full visual keyboard layouts for common physical key positions
+- Distinct pressed, held, repeated, and released visual states
+- Live key value, physical code, key location, and repeat-state details
+- Shift, Control, Alt, and Meta modifier reporting
+- Current simultaneous-key set and detected rollover count
+- Recent keyboard-event history for comparing press and release behaviour
+- Accessible focus guidance and a complete reset for clearing the test state
 
 ## Screenshot
 
 ![Keyboard Tester interface](./public/tool-preview.webp)
+
+## How to use
+
+1. Choose the compact or full visual layout.
+2. Click or focus the tester so keyboard events are directed to the page.
+3. Press individual keys and modifier combinations, then hold keys to test repeat behaviour.
+4. Review the visual key states, event details, simultaneous keys, and rollover result.
+5. Release all keys and reset the tester before starting a new check.
 
 ## Browser support and limitations
 

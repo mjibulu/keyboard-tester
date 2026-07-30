@@ -52,9 +52,11 @@ export function App() {
           <summary>How to use this tool</summary>
           <div className="information-content">
             <ol>
-            <li>{"Choose a compact or full keyboard layout and focus the tester."}</li>
-            <li>{"Press, hold, repeat, and release keys while watching their visual states."}</li>
-            <li>{"Review the event details and rollover summary, then reset the tester when finished."}</li>
+            <li>{"Choose the compact or full visual layout."}</li>
+            <li>{"Click or focus the tester so keyboard events are directed to the page."}</li>
+            <li>{"Press individual keys and modifier combinations, then hold keys to test repeat behaviour."}</li>
+            <li>{"Review the visual key states, event details, simultaneous keys, and rollover result."}</li>
+            <li>{"Release all keys and reset the tester before starting a new check."}</li>
             </ol>
           </div>
         </details>
