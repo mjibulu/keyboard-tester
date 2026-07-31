@@ -31,18 +31,23 @@ The current stable releases of Chromium, Firefox, and Safari are supported.
 - Operating-system and browser shortcuts may be intercepted before the page receives them.
 - Virtual mobile keyboards do not always expose the same key and code details as physical keyboards.
 
-## Run locally
+## Clone and run locally
 
 Requirements:
 
-- Node.js 24.x
+- Git
+- Node.js 22.13.x or Node.js 24.x (recommended)
 - Corepack
 
 ```bash
+git clone https://github.com/mjibulu/keyboard-tester.git
+cd keyboard-tester
 corepack enable
 pnpm install --frozen-lockfile
 pnpm run dev
 ```
+
+The development server prints the local URL to open in your browser.
 
 ## Verify
 
